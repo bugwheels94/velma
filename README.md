@@ -1,5 +1,7 @@
 ﻿## A responsive multipurpose Ghost Theme
 
+## [DEMO](http://velma-redhivesoftware.rhcloud.com)
+
 ## Velma documentation
 
 ##How to open the admin panel
