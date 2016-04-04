@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{! Document Settings }}
+	<meta charset="utf-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	{{! Page Meta }}
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+	{{! Styles'n'Scripts }}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{asset "assets/style.css"}}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script>
+		var velma_url="{{asset "assets/"}}".split("?v=")[0];
+		var velma={
+			url:{},
+			follow:{},
+			comment:{},
+			feed:{}
+		};
+	function loadCss(url) {
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = url;
+    document.getElementsByTagName("head")[0].appendChild(link);
+	}
+	</script>
+	<script src="{{asset "assets/script.min.js"}}"></script>
+{{! Ghost outputs important style and meta data with this tag }}
+	{{ghost_head}}
+	{{> "google-analytics"}}
+</head>
+<body class="{{body_class}} container-fluid">
+	<div id="loadposter" class="text-center transitioned opaque">
+		<div style="display:inline-block;vertical-align:middle;font-family:Calibri;font-size:20px;">
+			<div class="lead"><i class="fa fa-spinner fa-spin"></i></div>
+			<div>Wait for few moments</div>
+			<div>Loading {{@blog.title}}</div>
+		</div>
+		<div class="valign-support"></div>
+	</div>
+	{{{body}}}
+	{{! Ghost outputs important scripts and data with this tag }}
+	{{ghost_foot}}
+<div id="myModal" class="modal fade text-center" role="dialog">
+	<div class="modal-dialog"><!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Subscribe to <span style="font-family:'Pacifico';text-transform:none;">{{@blog.title}}</span> Updates</h4>
+			</div>
+			<div class="modal-body">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

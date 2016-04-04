@@ -1,0 +1,31 @@
+<span id="linkme"></span>
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "name" : "Your Organization Name",
+  "url" : "http://www.your-site.com",
+  "sameAs" : [ "http://www.facebook.com/your-profile",
+    "http://www.twitter.com/yourProfile",
+    "http://plus.google.com/your_profile"]
+}
+</script>
+<script>
++function(){
+  var map={
+    twitter:"twitter-square",
+    facebook:"facebook-square",
+    gplus:"google-plus-square",
+    linkedin:"linkedin-square",
+    youtube:"youtube-square",
+    flickr:"flickr",
+    tumblr:"tumblr-square",
+    instagram:"instagram"
+  }
+  for(var key in velma.url){
+    if(key!=="end")
+    document.getElementById("linkme").innerHTML+='<a href="'+velma.url[key]+'"><i class="fa fa-'+map[key]+'"></i></a>';
+  }
+  document.getElementById("linkme").innerHTML+='<a href="{{@blog.url}}/rss"><i class="fa fa-rss"></i></a>';
+
+}();
+</script>

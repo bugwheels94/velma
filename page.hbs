@@ -1,0 +1,28 @@
+{{!< default}}
+{{! The comment above "< default" means - insert everything in this file into
+	the {body} of the default.hbs template, which contains our header/footer. }}
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+		{{! Everything else gets inserted here }}
+{{> "header"}}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 post-container">
+					<main role="main">
+								<header>
+										<h2 class="post-heading text-center" itemprop="headline">
+											{{title}}
+										</h2>
+																		</header>
+								<section class="post-content col-lg-12 margin-bottom-30" itemprop="articleBody">
+									{{content}}
+								</section>
+					</main>
+			</div>
+		</div>
+	</article>
+	<div style="display:none;">
+{{> "newsletter"}}
+	</div>
+{{> "fancyFooter"}}
+{{/post}}

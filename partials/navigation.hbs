@@ -1,0 +1,7 @@
+<ul class="list-unstyled navigation">
+    {{#foreach navigation}}
+    <li class="{{#if current}} active{{/if}}" role="presentation">
+      <a class="black" href="{{url absolute="true"}}">{{label}}</a>
+    </li>
+    {{/foreach}}
+</ul>

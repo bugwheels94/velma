@@ -1,0 +1,49 @@
+
+
+
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+{{! The big featured header }}
+{{! The main content area on the homepage }}
+	{{! Everything else gets inserted here }}
+	{{> "header"}}
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-10 post-list-container">
+			{{#tag}}
+			<div class="row" style="padding:20px 0; margin-top:40px;border-top:solid 1px #ccc;border-bottom:solid 1px #ccc;">
+				<div style="overflow:hidden;">
+					{{#if image}}
+						<div class="col-sm-2 text-center" style="border-right:solid 1px #ccc;margin-bottom:-500px;padding-bottom:500px;">
+							<div class="img-circle post-author-image" style="background-image:url({{image}});">
+							</div>
+						</div>
+					{{/if}}
+					<div class="col-sm-10 post-author-detail">
+						<a href="{{url}}" class="post-author-name"><h4><strong>{{name}}</strong></h4></a>
+						{{#if description}}
+							<div class="margin-bottom-15 margin-top-15">{{description}}</div>
+						 {{/if}}
+					</div>
+				</div>
+			</div>
+			<div class="row total-post">
+				<span class="lead" style="padding-left:20px;">{{plural ../pagination.total empty='No posts' singular='<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> % post' plural='<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> % posts'}}</span>
+			</div>
+			<div class="row" style="border-top:solid 1px #ccc;"></div>
+			{{/tag}}
+
+				<main role="main">
+					<div class="post-list" >
+						{{! The tag below includes the post loop - partials/loop.hbs }}
+						{{> "loop"}}
+					</div>
+				</main>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div style="display:none;">
+		{{> "newsletter"}}
+	</div>
+	{{> "fancyFooter"}}

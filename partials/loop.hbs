@@ -1,0 +1,23 @@
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+  {{#if featured}}
+  <div class="text-center margin-top-30" style="margin-bottom:-15px;font-family:'Open Sans';">
+    <strong style="border-bottom:dotted 1px #ccc;padding-bottom:3px;">
+      <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> FEATURED
+    </strong>
+  </div>
+    {{> "single-loop-post"}}
+
+  {{/if}}
+
+{{/foreach}}
+{{#foreach posts}}
+  {{^if featured}}
+    {{> "single-loop-post"}}
+
+  {{/if}}
+
+{{/foreach}}
+{{> "advertisement"}}
+    {{! Previous/next page links - displayed on every page }}
+    {{pagination}}

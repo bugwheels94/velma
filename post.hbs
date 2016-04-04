@@ -1,0 +1,202 @@
+{{!< default}}
+{{! The comment above "< default" means - insert everything in this file into
+	the {body} of the default.hbs template, which contains our header/footer. }}
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+		{{! Everything else gets inserted here }}
+{{> "header"}}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+	<link itemprop="mainEntityOfPage" href="{{url absolute='true'}}" />
+	<meta itemprop="publisher" content="{{@blog.title}}"></meta>
+
+		{{#if image}}
+		<header class="row fancy-cover">
+				<div class="post-img-container noselect hidden-sm hidden-xs text-center" style="max-height:500px;">
+						<img data-cover="{{image}}" id="blog-cover-img" class="header-img" />
+						<meta itemprop="image" content="{{image}}"></meta>
+						<div class="absolute-occupier container-fluid">
+								<div class="text-center row" style="height:100%;">
+										<div style="display:inline-block;vertical-align:middle;">
+											<span class="post-list-tags margin-top-15 text-center">
+						              {{tags separator=""}}
+						          </span>
+						          <div class="container">
+						            <h2 class="post-heading text-center" itemprop="headline">
+						              {{title}}
+						            </h2>
+						          </div>
+						            <section style="font-family:'Calibri';" class="text-center post-date">
+						              <span style="">
+						                <span class="glyphicon glyphicon-time"></span>
+						                <time itemprop="datePublished" content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+						              </span>
+						            </section>
+						            <div class="margin-bottom-30 text-center">
+						                {{> "share-post"}}
+						            </div>
+										</div>
+										<div class="valign-support"></div>
+								</div>
+						</div>
+				</div>
+
+				<div class="post-img-container text-center noselect visible-sm visible-xs">
+						<div style="background-size:cover;" id="blog-cover-bg" class="header-xs-img absolute-occupier" ></div>
+						<div class="container-fluid">
+								<div class="text-center row margin-top-30" style="height:100%;">
+										<div style="display:inline-block;vertical-align:middle;position:relative;z-index:3;">
+											<span class="post-list-tags margin-top-15 text-center">
+						              {{tags separator=""}}
+						          </span>
+						          <div class="container">
+						            <h2 class="post-heading text-center" itemprop="headline">
+						              {{title}}
+						            </h2>
+						          </div>
+						            <section style="font-family:'Calibri';" class="text-center post-date">
+						              <span style="">
+						                <span class="glyphicon glyphicon-time"></span>
+						                <time itemprop="datePublished" content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+						              </span>
+						            </section>
+						            <div class="margin-bottom-30 text-center">
+						                {{> "share-post"}}
+						            </div>
+										</div>
+										<div class="valign-support"></div>
+								</div>
+						</div>
+				</div>
+		</header>
+		{{/if}}
+
+
+	<div class="row">
+
+			<div class="col-sm-10 col-sm-offset-1 post-container">
+				<div class="row">
+					<main role="main" class="col-sm-9">
+						{{^if image}}
+						<header class="text-center">
+							<section class="text-center post-date margin-top-30">
+								<span class="post-list-tags text-center">
+										{{tags separator=""}}
+								</span>
+								<h2 class="post-heading text-center" style="padding:20px 0 15px 0;" itemprop="headline">
+									{{title}}
+								</h2>
+								<div class="row">
+										<div class="col-sm-5 col-sm-offset-1 text-left" style="font-family:'Open Sans';">
+											<span class="glyphicon glyphicon-time" style="color:#111;"></span>
+											<time itemprop="datePublished" content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+										</div>
+										<div class="col-sm-5 text-right">
+												{{> "share-post"}}
+										</div>
+								</div>
+							</section>
+						</header>
+						{{/if}}
+						<div class="row">
+								<section class="post-content col-lg-12 margin-bottom-30" itemprop="articleBody">
+									{{content}}
+								</section>
+								<footer class="col-lg-12">
+									<div class="row">
+									<div class="col-sm-6 text-left post-ending-tag margin-bottom-15">
+										<span itemprop="keywords">{{tags separator="</span> | <span itemprop='keywords'>"}}</span>
+									</div>
+									<div class="col-sm-6 text-right">
+											{{> "share-post"}}
+									</div>
+								</div>
+								</footer>
+								<div class="col-lg-12 post-author-end">
+									{{#author}}
+
+									<section itemprop="author" itemscope itemtype="http://schema.org/Person">
+										<div style="overflow:hidden;" class="row">
+										{{#if image}}
+											<figure class="col-sm-2 col-xs-12 text-center " style="border-right:solid 1px #ccc;margin-bottom:-500px;padding-bottom:500px;">
+												<div class="post-author-image-container">
+													<div class="img-circle post-author-image" style="background-image:url({{image}});">
+													</div>
+												</div>
+											</figure>
+										{{/if}}
+										<section class="col-sm-10 col-xs-12 post-author-detail">
+											<h3><a href="{{url}}" class="post-author-name" itemprop="name">{{name}}</a></h3>
+											{{#if bio}}
+												<p class="margin-bottom-15 margin-top-15" itemprop="description">{{bio}}</p>
+											 {{/if}}
+											{{#if location}}
+												<span class="margin-bottom-15"><span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span> <span itemprop="address">{{location}}</span></span>
+											{{/if}}
+											{{#if website}}
+												<span class="margin-bottom-15 margin-left-15"><span class='glyphicon glyphicon-link' aria-hidden='true'></span><a href="{{website}}" class="black" itemprop="url" /> {{website}}</a></span>
+											{{/if}}
+										</section>
+									</div>
+								</section>
+
+
+									{{/author}}
+								</div>
+								<div class="col-lg-12">
+									{{> "disqus-comments"}}
+									{{> "facebook-comments"}}
+								</div>
+						</div>
+					</main>
+					<div class="col-sm-3 sidebar">
+						{{#author}}
+						<section itemprop="author" class="post-author-detail text-center post-author-sidebar hidden-xs" itemscope itemtype="http://schema.org/Person">
+							<h5 class=" sidebar-post-title">
+								<a href="{{url}}" class="post-author-name lead">By <span itemprop="name">{{name}}</span></a>
+							</h5>
+							{{#if image}}
+									<figure>
+										<div class="post-author-image-container">
+											<div class="img-circle post-author-image" style="background-image:url({{image}});">
+											</div>
+										</div>
+									</figure>
+							{{/if}}
+							{{#if bio}}
+							<p class="sidebar-entry text-left" itemprop="description">{{bio}}</p>
+						  {{/if}}
+							<p>
+						  	<a href="{{url}}" class="post-author-link" itemprop="url">Read more posts by this author.</a>
+							</p>
+						</section>
+						{{/author}}
+						{{> "sidebar"}}
+					</div>
+				</div>
+				<aside class="row">
+					<span class="smart"></span>
+						{{#next_post}}
+						<span></span>
+						{{/next_post}}
+					{{#prev_post}}
+					<a href="{{url}}" class="shadow-box transitioned text-center adj-post {{#if image}}background-setter " style="background-image: url({{image}});{{else}}{{/if}}" alt="{{name}}">
+						<section style="display:inline-block;vertical-align:middle;line-height:normal;">
+								<span class="adjacent-post-category white-if-bg">Previous Post</span>
+								<h2 class="adjacent-post-title white-if-bg">{{title}}</h2>
+						</section>
+						<span class="valign-support"></span>
+					</a>{{/prev_post}}<span class="smart"></span>{{#prev_post}}<span></span>{{/prev_post}}
+					{{#next_post}}
+					<a href="{{url}}"  class="shadow-box transitioned text-center adj-post {{#if image}} background-setter" style="background-image: url({{image}});{{else}}{{/if}}" alt="{{name}}">
+						<section style=" display:inline-block;vertical-align:middle;line-height:normal;">
+								<span class="adjacent-post-category white-if-bg">Next Post</span>
+								<h2 class="adjacent-post-title white-if-bg">{{title}}</h2>
+						</section>
+					</a>
+					{{/next_post}}
+				</aside>
+			</div>
+		</div>
+	</article>
+{{> "footer"}}
+{{/post}}

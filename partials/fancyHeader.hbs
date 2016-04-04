@@ -1,0 +1,76 @@
+<header class="row fancy-cover">
+
+		<div class="fancy-img noselect hidden-sm hidden-xs">
+				{{#if @blog.cover}}
+					<img data-cover="{{@blog.cover}}" id="blog-cover-img" class="header-img" />
+				{{/if}}
+				<div class="absolute-occupier container-fluid">
+						<div class="row" style="position:relative;">
+							<div class="absolute-occupier" style="background:#fff;opacity:0.2;border-bottom:solid 1px"></div>
+							<div class="col-sm-10 col-sm-offset-1">
+									<nav class="header-nav header-nav-bigp">{{navigation}}</nav>
+							</div>
+						</div>
+						<div class="text-center row" style="height:100%;">
+								<div style="display:inline-block;vertical-align:middle;">
+										<div class="blog-title-container">
+												{{#if @blog.logo}}
+														<img style="max-width:50px;" src="{{@blog.logo}}"/>
+												{{/if}}
+												<h1 class="blog-title" style="margin-top:0;">
+														{{@blog.title}}
+												</h1>
+												<div>
+														<h5 class="blog-description">
+																{{@blog.description}}
+														</h5>
+												</div>
+										</div>
+								</div>
+								<div class="valign-support"></div>
+						</div>
+				</div>
+		</div>
+
+		<div class="noselect visible-sm visible-xs">
+				{{#if @blog.cover}}
+				<div id="blog-cover-bg" class="header-xs-img absolute-occupier" ></div>
+				{{/if}}
+				<div class="container-fluid">
+						<div class="row" style="position:relative;">
+							<div class="absolute-occupier" style="background:#fff;opacity:0.2;border-bottom:solid 1px"></div>
+							<div class="col-sm-10 col-sm-offset-1">
+									<nav class="header-nav">{{navigation}}</nav>
+							</div>
+							<div class="col-sm-1">
+							</div>
+
+						</div>
+						<div class="text-center row" style="height:100%;">
+								<div style="display:inline-block;vertical-align:middle;">
+										<div class="blog-title-container" style="position:relative;z-index:3;">
+												{{#if @blog.logo}}
+														<img style="max-width:50px;" src="{{@blog.logo}}"/>
+												{{/if}}
+												<h1 class="blog-title" style="margin-top:0;">
+														{{@blog.title}}
+												</h1>
+												<div>
+														<h5 class="blog-description">
+																{{@blog.description}}
+														</h5>
+												</div>
+										</div>
+								</div>
+								<div class="valign-support"></div>
+						</div>
+				</div>
+		</div>
+
+		<div class="promotion-container text-center col-lg-12" {{^if @blog.cover}}style="background-color:#020030;"{{/if}}>
+				{{> "newsletter"}}
+				{{> "endorse-blog"}}
+				<div class="promotion-container-after"></div>
+		</div>
+
+</header>

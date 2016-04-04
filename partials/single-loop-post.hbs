@@ -1,0 +1,62 @@
+<article class="{{post_class}} page-header" style="font-family:calibri;" itemscope itemtype="http://schema.org/BlogPosting">
+  <link itemprop="mainEntityOfPage" href="{{url absolute='true'}}" />
+  <meta itemprop="publisher" content="{{@blog.title}}"></meta>
+
+        <div class="row {{#if image}}background-setter shadow-box transitioned" data-bg="{{image}}" alt="{{name}}{{else}}text-center{{/if}}">
+          {{#if image}}<meta itemprop="image" content="{{image}}"></meta>{{/if}}
+
+            <header class="margin-bottom-15 inline-block-bottom">
+                <div class="title-photo-feature">
+                    <div class="post-list-tags">
+                        <span itemprop="keywords">{{tags separator="</span><span itemprop='keywords'>"}}</span>
+                    </div>
+                    <h3 class="post-list-title">
+                        <a href="{{url}}" class="white-if-bg" itemprop="headline">
+                            {{{title}}}
+                        </a>
+                    </h3>
+                    {{#author}}
+                      <a href="{{url}}">
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person" class="white-if-bg">
+                          <span class="glyphicon glyphicon-user"></span>
+                          <span itemprop="name">{{name}}</span>
+                        </span>
+                      </a>
+                    {{/author}}
+                    <span class="margin-left-15 white-if-bg">
+                      <span class="glyphicon glyphicon-time"></span>
+                      <time itemprop="datePublished" content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+                    </span>
+
+                </div>
+            </header>
+            <div class="valign-support"></div>
+        </div>
+    <section style="padding-left:10px;margin-top:30px;">
+      <p class="post-list-content" itemprop="text">{{excerpt words="50"}}...</p>
+      <div class="post-list-expand text-center">
+        <a href="{{url}}" class="transitioned">
+            READ MORE <span class='glyphicon glyphicon-menu-right' aria-hidden='true'></span>
+        </a>
+      </div>
+
+    </section>
+    <footer class="row">
+        <div class="col-sm-9 comment-count small">
+            <a href="{{url}}" class="post-list-comment black">
+              <i class="fa fa-comment-o"></i>
+            </a>
+            <a class="fb-comment-count" href="{{url}}">
+              <span class="fb-comments-count" data-href="{{url absolute="true"}}"></span> Comments
+            </a>
+            <a href="{{url}}#disqus_thread">Comment</a>
+        </div>
+        <div class="col-sm-3 text-right">
+            <span class="text-nowrap share-post-container">
+                {{> "share-post"}}
+            </span>
+        </div>
+    </footer>
+</article>
+{{! This is the post loop - each post will be output using this markup }}
+    {{! Previous/next page links - displayed on every page }}
