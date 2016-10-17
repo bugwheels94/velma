@@ -191,6 +191,9 @@ input:-moz-placeholder { color: #555; }
   max-width: 100%;
   position: relative;
 }
+.header-img-wrapper{
+    text-align: center;
+}
 .header-xs-img{
 background-size:cover;
 background-position:center;
@@ -474,7 +477,6 @@ background-position:center;
 .background-setter{
   position: relative;
   height:300px;
-  background-color: ;
   background-position: 0% 50%;
   background-size:cover;
   background-color: #020030;

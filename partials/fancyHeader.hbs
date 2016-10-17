@@ -2,7 +2,9 @@
 
 		<div class="fancy-img noselect hidden-sm hidden-xs">
 				{{#if @blog.cover}}
-					<img data-cover="{{@blog.cover}}" id="blog-cover-img" class="header-img" />
+					<div class="header-img-wrapper">
+                        			<img data-cover="{{@blog.cover}}" id="blog-cover-img" class="header-img" />
+                    			</div>
 				{{/if}}
 				<div class="absolute-occupier container-fluid">
 						<div class="row" style="position:relative;">
