@@ -202,6 +202,7 @@ background-position:center;
   max-height: 470px;
   min-height:200px;
   position: relative;
+  text-align: center;
 }
 .fancy-cover{
   background-color: #020030;
@@ -474,7 +475,6 @@ background-position:center;
 .background-setter{
   position: relative;
   height:300px;
-  background-color: ;
   background-position: 0% 50%;
   background-size:cover;
   background-color: #020030;
